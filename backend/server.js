@@ -3,6 +3,12 @@ const express = require("express");
 const app = express();
 const colors = require("colors");
 
+// everytime a req is made this middleware will show req path and req method
+app.use ((req,res,next) => {
+   console.log(req.path, req.method);
+   console.log('hellow')
+    next();
+})
 app.get("/", function (req, res) {
   // res.json('Hello World!'); // works
   res.json({ message: "Hello World!" });
